@@ -1,9 +1,15 @@
+:root {
+  --white: #ccc;
+  --primary: #225ca3;
+  --secondary: #3486eb;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #282c34;
+  background-color: #252525;
 }
 
 body, html {
@@ -11,25 +17,25 @@ body, html {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: #ccc;
+  color: var(--white);
 }
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: var(--primary);
   font-weight: bold;
   transition: color .1s;
 }
 
 a:hover {
-  color: #3486eb;
+  color: var(--secondary);
 }
 
 button {
-  background-color: #225ca3;
+  background-color: var(--primary);
   border: 0;
   padding: 1%;
-  color: white;
+  color: var(--white);
   font-weight: bold;
   transition: background-color .1s;
   cursor: pointer;
@@ -37,7 +43,7 @@ button {
 }
 
 button:hover {
-  background-color: #3486eb;
+  background-color: var(--secondary);
 }
 
 .post-list {
@@ -48,7 +54,7 @@ button:hover {
 textarea, input {
   padding: .5%;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--white);
 }
 
 textarea:focus, input:focus {
@@ -79,7 +85,7 @@ form label {
 }
 
 header {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -101,7 +107,7 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: var(--primary);
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -110,7 +116,7 @@ main {
 
 .btn-no-style:hover {
   background: none;
-  color: #3486eb;
+  color: var(--secondary);
 }
 
 .delete-post-btn {
@@ -174,7 +180,7 @@ main {
 }
 
 footer {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--white);
   display: flex;
   justify-content: center;
   padding: 1%;

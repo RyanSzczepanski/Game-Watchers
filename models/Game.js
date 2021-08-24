@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class GameList extends Model {}
+class Game extends Model {}
 
 Comment.init(
   {
@@ -11,14 +11,14 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true
     },
-    title: {
+    game_title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
+    list_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'list',
         key: 'id'
       }
     },
@@ -27,8 +27,8 @@ Comment.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'gamelist'
+    modelName: 'game'
   }
 );
 
-module.exports = GameList;
+module.exports = Game;

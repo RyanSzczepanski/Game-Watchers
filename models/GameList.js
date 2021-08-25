@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class GameList extends Model {}
 
-Comment.init(
+GameList.init(
   {
     id: {
       type: DataTypes.INTEGER,

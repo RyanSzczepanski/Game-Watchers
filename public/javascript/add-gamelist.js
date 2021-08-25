@@ -1,7 +1,7 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const title = document.querySelector('input[name="post-title"]').value;
+    const title = document.querySelector('input[name="gamelist-title"]').value;
   
     const response = await fetch(`/api/gamelist`, {
       method: 'POST',
@@ -14,11 +14,11 @@ async function newFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/gamelist');
     } else {
       alert(response.statusText);
     }
   }
   
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.new-gamelist-form').addEventListener('submit', newFormHandler);
   

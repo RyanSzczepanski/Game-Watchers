@@ -6,10 +6,6 @@
       <label for="gamelist-title">Title</label>
       <input type="text" id="gamelist-title" name="gamelist-title" />
     </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
     <button type="submit" class="btn">Create</button>
   </form>
 </section>
@@ -18,12 +14,10 @@
 <section>
   <h2>Your Gamelists</h2>
   <ol>
-    {{#each gamelists as |gamelists|}}
+    {{#each gamelists as |gamelist|}}
     <li>
-      {{!-- TODO: CREATE GAMELIST PARTIAL --}}
-      
-      {{!-- {{> post-info post}}
-      <a href="/dashboard/edit/{{gamelists.id}}" class="edit-link">Edit post</a> --}}
+      {{> gamelist-info gamelist}}
+      {{!-- <a href="/dashboard/edit/{{gamelists.id}}" class="edit-link">Edit post</a> --}}
     </li>
     {{/each}}
   </ol>

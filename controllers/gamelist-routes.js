@@ -27,7 +27,7 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbGamelistData => {
       const gamelists = dbGamelistData.map(gamelist => gamelist.get({ plain: true }));
-      res.render('dashboard', { gamelists, loggedIn: true });
+      res.render('gamelist', { gamelists, loggedIn: true });
     })
     .catch(err => {
       console.log(err);

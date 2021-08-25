@@ -7,13 +7,12 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
-  Post.findAll({
+  GameList.findAll({
     attributes: [
       'id',
       'title',
       'user_id',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -28,7 +27,7 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbGamelistData => {
       const gamelists = dbGamelistData.map(gamelist => gamelist.get({ plain: true }));
-      res.render('dashboard', { gamelists, loggedIn: true });
+      res.render('gamelist', { gamelists, loggedIn: true });
     })
     .catch(err => {
       console.log(err);

@@ -1,0 +1,29 @@
+<article>
+  <a href="/Gamelist"> &larr; Back to Gamelist</a>
+  <h2>
+    Edit list
+  </h2>
+  <form class="edit-gamelist-form">
+    <div>
+      <input name="gamelist-title" type="text" value="{{gamelist.title}}" />
+    </div>
+    <button type="submit">Save Gamelist</button>
+    <button type="button" class="delete-gamelist-btn">Delete post</button>
+  </form>
+</article>
+
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+  </div>
+</form>
+
+{{> comments post.comments}}
+
+<script src="/javascript/edit-gamelist.js"></script>
+<script src="/javascript/delete-gamelist.js"></script>
+<script src="/javascript/comment.js"></script>

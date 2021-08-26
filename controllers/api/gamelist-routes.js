@@ -98,7 +98,7 @@ router.put('/upvote', withAuth, (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
-  Post.update(
+  GameList.update(
     {
       title: req.body.title
     },
@@ -108,12 +108,12 @@ router.put('/:id', withAuth, (req, res) => {
       }
     }
   )
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbGamelistData => {
+      if (!dbGamelistData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbGamelistData);
     })
     .catch(err => {
       console.log(err);

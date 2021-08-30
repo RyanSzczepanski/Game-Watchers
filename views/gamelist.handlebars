@@ -17,7 +17,7 @@
     {{#each gamelists as |gamelist|}}
     <li>
       {{> gamelist-info gamelist}}
-      {{!-- <a href="/dashboard/edit/{{gamelists.id}}" class="edit-link">Edit post</a> --}}
+      <a href="/gamelist/edit/{{gamelist.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ol>

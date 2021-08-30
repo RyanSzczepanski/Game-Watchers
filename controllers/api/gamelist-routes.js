@@ -74,13 +74,13 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', /*withAuth,*/ (req, res) => {
+router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', user_id: 1}
   GameList.create({
     title: req.body.title,
     user_id: req.session.user_id
   })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbGamelistData => res.json(dbGamelistData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

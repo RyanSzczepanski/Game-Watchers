@@ -12,6 +12,10 @@ body {
   background-color: #252525;
 }
 
+h2 {
+  font-size: xx-large;
+}
+
 body, html {
   height: 100%;
   padding: 0;
@@ -86,6 +90,15 @@ form label {
 
 .nav-wrapper {
   padding: 0 25px;
+}
+
+.gamelist-row {
+  height:220px;
+  background-color: #ffffff21;
+}
+
+.gamelist-card {
+  background-color: #00000025;
 }
 
 /* header {

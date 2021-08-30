@@ -1,27 +1,41 @@
-<section>
-  <h2>Create New Post</h2>
-
-  <form class="new-gamelist-form">
-    <div>
-      <label for="gamelist-title">Title</label>
-      <input type="text" id="gamelist-title" name="gamelist-title" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
-
 {{#if gamelists.length}}
-<section>
-  <h2>Your Gamelists</h2>
-  <ol>
-    {{#each gamelists as |gamelist|}}
-    <li>
-      {{> gamelist-info gamelist}}
-      <a href="/gamelist/edit/{{gamelist.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
+<h2>Your Gamelists</h2>
 {{/if}}
+
+{{#each gamelists as |gamelist|}}
+
+{{#unless @index}}
+<section class="row">  
+
+    {{> gamelist-info gamelist = gamelist size = "s6"}}
+
+  <div class="col s6">
+    <h2>Create New List</h2>
+    <form class="new-gamelist-form">
+      <div>
+        <label for="gamelist-title">Title</label>
+        <input type="text" id="gamelist-title" name="gamelist-title" />
+      </div>
+      <button type="submit" class="btn">Create</button>
+    </form>
+  </div>
+</section>
+{{/unless}}
+
+{{#if @index}}
+
+  {{#if (ShouldCreateNewRow @index)}}
+  <section class="row gamelist-row">
+  {{setVar "sn" (GetClassSectionNumb ../gamelists @index)}}
+  {{/if}}
+
+    {{> gamelist-info gamelist = gamelist size = ../sn}}
+
+  {{#if (ShouldEndRow ../gamelists @index)}}
+  </section>
+  {{/if}}
+
+{{/if}}
+{{/each}}
 
 <script src="/javascript/add-gamelist.js"></script>

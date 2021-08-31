@@ -27,7 +27,10 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbGamelistData => {
       const gamelists = dbGamelistData.map(gamelist => gamelist.get({ plain: true }));
-      res.render('gamelist', { gamelists, loggedIn: true });
+      res.render('gamelist',{
+        gamelists,
+        loggedIn: true
+      });
     })
     .catch(err => {
       console.log(err);
@@ -35,8 +38,8 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.get('/edit/:id', withAuth, (req, res) => {
-  GameList.findByPk(req.params.id, {
+router.get('/view/:list_id', withAuth, (req, res) => {
+  GameList.findByPk(req.params.list_id ,{
     attributes: [
       'id',
       'title',
@@ -54,12 +57,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
       }
     ]
   })
-    .then(dbGamelistData => {
-      if (dbGamelistData) {
-        const gamelist = dbGamelistData.get({ plain: true });
-        
-        res.render('edit-gamelist', {
-          gamelist,
+    .then(dbGamesListData => {
+      if (dbGamesListData) {
+        const gamelists = dbGamesListData.get({ plain: true });
+        res.render('view-gamelist', {
+          gamelists,
           loggedIn: true
         });
       } else {
@@ -69,6 +71,5 @@ router.get('/edit/:id', withAuth, (req, res) => {
     .catch(err => {
       res.status(500).json(err);
     });
-});
-
+  })
 module.exports = router;

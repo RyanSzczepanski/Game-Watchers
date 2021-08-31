@@ -3,34 +3,30 @@
   <h2>
     Edit list
   </h2>
-  <form class="edit-gamelist-form row">
-    <input class="col s3" name="gamelist-title" type="text" value="{{gamelist.title}}" />
-    <button class="col s2" type="submit">Save Gamelist</button>
+  <form class="edit-gamelist-form">
+    <input class="" name="gamelist-title" type="text" value="{{gamelists.title}}" />
+    <button class="" type="submit">Save Gamelist</button>
   </form>
 
-<form class="add-game-form">
+{{#each gamelists.games as |game|}}
+<form class="edit-gamelist-form">
     <div>
-      <input name="game-title" type="text" value="Game Title" />
+      <input name="game-title" type="text" value="{{game.game_title}}"/>
     </div>
-    <button type="submit">Add Game</button>
-  </form>  
-
+    <button type="submit">Save</button>
+  </form>
+{{/each}}
+<form class="add-game-form">
+  <div>
+    <input name="newgame-title" type="text" value="Game Title" />
+  </div>
+  <button type="submit">Add Game</button>
+</form>
+<br>
 <button type="button" class="delete-gamelist-btn">Delete list</button>
 </article>
 
-{{!-- <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form> --}}
-
-{{> comments post.comments}}
 
 <script src="/javascript/add-game.js"></script>
 <script src="/javascript/edit-gamelist.js"></script>
 <script src="/javascript/delete-gamelist.js"></script>
-<script src="/javascript/comment.js"></script>

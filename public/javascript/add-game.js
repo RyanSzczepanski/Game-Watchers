@@ -1,17 +1,15 @@
 async function editFormHandler(event) {
     event.preventDefault();
 
-    const game_title = document.querySelector('input[name="game-title"]').value.trim();
+    const game_title = document.querySelector('input[name="newgame-title"]').value.trim();
+
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
-    console.log(typeof (id));
-    const response = await fetch(`/api/game/`, {
+    const response = await fetch(`/api/game/${id}`, {
         method: 'POST',
         body: JSON.stringify({
             game_title,
-            list_id: parseInt(id)
-
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -19,10 +17,10 @@ async function editFormHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/Gamelist/');
+        document.location.replace(`${id}`);
     } else {
         alert(response.statusText);
     }
 }
-
+console.log('FUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCKFUCK')
 document.querySelector('.add-game-form').addEventListener('submit', editFormHandler);

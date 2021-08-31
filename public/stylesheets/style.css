@@ -188,8 +188,14 @@ main {
   opacity: .6;
 }
 
-.new-post-form input {
+.new-gamelist-form input {
   width: 300px;
+  color: var(--white);
+}
+
+.edit-gamelist-form input {
+  width: 300px;
+  color: var(--white);
 }
 
 .edit-post-form {

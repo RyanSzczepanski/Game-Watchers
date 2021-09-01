@@ -53,4 +53,15 @@ router.post('/', /*withAuth,*/ (req, res) => {
         });
     });
 
+    router.post('/:list_id', /*withAuth,*/ (req, res) => {
+      Game.create({
+        game_title: req.body.game_title,
+        list_id: req.params.list_id
+      })
+        .then(dbGameData => res.json(dbGameData))
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    });
     module.exports = router;

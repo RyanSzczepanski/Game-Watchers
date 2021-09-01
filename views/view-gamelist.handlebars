@@ -1,0 +1,10 @@
+<a href="/Gamelist"> &larr; Back to Gamelist</a>
+<h2>{{gamelists.title}}</h2>
+{{log gamelists}}
+<ol>
+{{#each gamelists.games as |game|}}
+ <li>
+    {{> game-info game=game}}
+ </li>
+{{/each}}
+</ol>

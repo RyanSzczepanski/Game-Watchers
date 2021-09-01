@@ -1,7 +1,7 @@
-{{!-- <ol class="post-list">
-  {{#each posts as |post|}}
+<ol class="post-list">
+  {{#each gamelists as |gamelist|}}
   <li>
-    {{> post-info post }}
+    {{> gamelist-info gamelist = gamelist }}
   </li>
   {{/each}}
-</ol> --}}
+</ol>

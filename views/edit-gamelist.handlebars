@@ -1,0 +1,32 @@
+<article>
+  <a href="/Gamelist"> &larr; Back to Gamelist</a>
+  <h2>
+    Edit list
+  </h2>
+  <form class="edit-gamelist-form">
+    <input class="" name="gamelist-title" type="text" value="{{gamelists.title}}" />
+    <button class="" type="submit">Save Gamelist</button>
+  </form>
+
+{{#each gamelists.games as |game|}}
+<form class="edit-gamelist-form">
+    <div>
+      <input name="game-title" type="text" value="{{game.game_title}}"/>
+    </div>
+    <button type="submit">Save</button>
+  </form>
+{{/each}}
+<form class="add-game-form">
+  <div>
+    <input name="newgame-title" type="text" value="Game Title" />
+  </div>
+  <button type="submit">Add Game</button>
+</form>
+<br>
+<button type="button" class="delete-gamelist-btn">Delete list</button>
+</article>
+
+
+<script src="/javascript/add-game.js"></script>
+<script src="/javascript/edit-gamelist.js"></script>
+<script src="/javascript/delete-gamelist.js"></script>

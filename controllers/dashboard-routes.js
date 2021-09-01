@@ -1,31 +1,23 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Vote } = require('../models');
+const { Post, User, Comment, Vote, GameList, Game} = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
   console.log('======================');
   Post.findAll({
-    where: {
-      user_id: req.session.user_id
-    },
     attributes: [
       'id',
-      'post_url',
       'title',
+      'user_id',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
+        model: Game,
+        attributes: ['id', 'game_title', 'created_at'],
       },
       {
         model: User,
@@ -33,9 +25,9 @@ router.get('/', withAuth, (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+    .then(dbGamelistData => {
+      const gamelists = dbGamelistData.map(gamelist => gamelist.get({ plain: true }));
+      res.render('dashboard', { gamelists, loggedIn: true });
     })
     .catch(err => {
       console.log(err);

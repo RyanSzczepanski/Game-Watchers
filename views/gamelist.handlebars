@@ -20,7 +20,11 @@
 {{#unless @index}}
 <section class="row">  
 
-    {{> gamelist-info gamelist = gamelist size = "s6"}}
+  <div class="col s6 gamelist-card">
+    {{> gamelist-info gamelist = gamelist}}
+    <a href="/gamelist/edit/{{gamelist.id}}" class="edit-link">Edit</a>
+  </div>
+
 
   <div class="col s6 gamelist-card">
     <h2>Create New List</h2>
@@ -41,9 +45,10 @@
   <section class="row gamelist-row">
   {{setVar "sn" (GetClassSectionNumb ../gamelists @index)}}
   {{/if}}
-
-    {{> gamelist-info gamelist = gamelist size = ../sn}}
-
+    <div class="col {{../sn}} gamelist-card">
+      {{> gamelist-info gamelist = gamelist}}
+      <a href="/gamelist/edit/{{gamelist.id}}" class="edit-link">Edit</a>
+    </div>
   {{#if (ShouldEndRow ../gamelists @index)}}
   </section>
   {{/if}}

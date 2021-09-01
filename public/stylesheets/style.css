@@ -94,10 +94,11 @@ form label {
 
 .gamelist-row {
   height:220px;
-  background-color: #ffffff21;
+
 }
 
 .gamelist-card {
+  height:220px;
   background-color: #00000025;
 }
 

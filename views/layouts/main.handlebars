@@ -4,58 +4,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Game Watchers</title>
 
   <!-- Compiled and minified materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
-
 </head>
-<header>
 
+<header>
   <body>
     <div class="wrapper">
     <header>
+      {{!-- NAV START --}}
       <nav class="nav-wrapper">
+
         <a class="brand-logo" href="/">Game Watchers</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
         {{#if loggedIn}}
+
+        {{!-- DESKTOP NAV --}}
         <ul class="right hide-on-med-and-down">
           <li><a href="/Gamelist">Gamelist</a></li>
           <li><a id="logout">logout</a></li>
         </ul>
-
+        {{!-- MOBILE NAV --}}
         <ul class="sidenav" id="mobile-demo">
           <li><a href="/Gamelist">Gamelist</a></li>
-          <li><a><button id="logout" class="btn-no-style">logout</button></a>></li>
+          <li><a id="logout"></a>></li>
         </ul>
+
         {{else}}
+
+        {{!-- DESKTOP NAV --}}
         <ul class="right hide-on-med-and-down">
           <li><a href="/login">login</a></li>
         </ul>
+        {{!-- MOBILE NAV --}}
         <ul class="sidenav" id="mobile-demo">
           <li><a href="/login">login</a></li>
         </ul>
 
         {{/if}}
-      </nav>
-    </header>
 
+      </nav>
+      {{!-- NAV END --}}
+    </header>
+    {{!-- BODY --}}
     <main>
       {{{ body }}}
     </main>
+    {{!-- BODY END --}}
+
+    {{!-- FOOTER --}}
     <footer class="page-footer">
       Have fun gaming!
     </footer>
-
-
-
+    {{!-- FOOTER END --}}
 
 
     <!-- Compiled and minified materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
@@ -68,8 +78,6 @@
       });
     </script>
 
-
     </div>
   </body>
-
 </html>

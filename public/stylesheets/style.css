@@ -6,10 +6,13 @@
 
 * {
   box-sizing: border-box;
-}
+} 
 
 body {
   background-color: #252525;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 h2 {
@@ -33,10 +36,6 @@ a {
 
 a:hover {
   color: var(--secondary);
-}
-
-a.button{
-  height: 100%;
 }
 
 button {
@@ -111,7 +110,7 @@ header h1 {
 }
 
 main {
-  flex: 1;
+  flex: 1 0 auto;
   padding: 2% 4%;
 }
 
@@ -197,11 +196,11 @@ main {
 .edit-post-form {
   margin-bottom: 5%;
 }
-
+/* 
 footer {
   border-top: 1px solid var(--white);
   display: flex;
   justify-content: center;
   padding: 1%;
   font-size: 110%;
-}
+} */

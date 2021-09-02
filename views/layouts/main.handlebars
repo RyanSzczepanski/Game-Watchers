@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Game Watchers</title>
 
   <!-- Compiled and minified materialize CSS -->
@@ -12,72 +12,87 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<header>
-  <body>
-    <div class="wrapper">
+
+
+<body class="wrapper">
+  {{!-- NAV START --}}
+  <nav class="nav-wrapper">
     <header>
-      {{!-- NAV START --}}
-      <nav class="nav-wrapper">
+      <a class="brand-logo" href="/">Game Watchers</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-        <a class="brand-logo" href="/">Game Watchers</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      {{#if loggedIn}}
 
-        {{#if loggedIn}}
+      {{!-- DESKTOP NAV --}}
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/Gamelist">Gamelist</a></li>
+        <li><a id="logout">logout</a></li>
+      </ul>
+      {{!-- MOBILE NAV --}}
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/Gamelist">Gamelist</a></li>
+        <li><a id="logout"></a>></li>
+      </ul>
 
-        {{!-- DESKTOP NAV --}}
-        <ul class="right hide-on-med-and-down">
-          <li><a href="/Gamelist">Gamelist</a></li>
-          <li><a id="logout">logout</a></li>
-        </ul>
-        {{!-- MOBILE NAV --}}
-        <ul class="sidenav" id="mobile-demo">
-          <li><a href="/Gamelist">Gamelist</a></li>
-          <li><a id="logout"></a>></li>
-        </ul>
+      {{else}}
 
-        {{else}}
+      {{!-- DESKTOP NAV --}}
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/login">login</a></li>
+      </ul>
+      {{!-- MOBILE NAV --}}
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/login">login</a></li>
+      </ul>
 
-        {{!-- DESKTOP NAV --}}
-        <ul class="right hide-on-med-and-down">
-          <li><a href="/login">login</a></li>
-        </ul>
-        {{!-- MOBILE NAV --}}
-        <ul class="sidenav" id="mobile-demo">
-          <li><a href="/login">login</a></li>
-        </ul>
+      {{/if}}
 
-        {{/if}}
+  </nav>
+  {{!-- NAV END --}}
+  </header>
+  {{!-- MAIN --}}
+  <main>
+    {{{ body }}}
+  </main>
+  {{!-- MAIN END --}}
 
-      </nav>
-      {{!-- NAV END --}}
-    </header>
-    {{!-- BODY --}}
-    <main>
-      {{{ body }}}
-    </main>
-    {{!-- BODY END --}}
-
-    {{!-- FOOTER --}}
-    <footer class="page-footer">
-      Have fun gaming!
-    </footer>
-    {{!-- FOOTER END --}}
-
-
-    <!-- Compiled and minified materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems);
-      });
-    </script>
-
+  {{!-- FOOTER --}}
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About Me</h5>
+          <p class="grey-text text-lighten-4">I should proabably put some stuff about me here.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/RyanSzczepanski">Check Out My GitHub Here!</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </body>
+    <div class="center">
+      Have Fun Gaming!
+    </div>
+  </footer>
+  {{!-- FOOTER END --}}
+
+  <!-- Compiled and minified materialize JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+    });
+  </script>
+
+
+</body>
+
 </html>

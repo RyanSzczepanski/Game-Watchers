@@ -36,14 +36,14 @@ module.exports = {
     }
     return ret;
   },
-  ShouldCreateNewRow: (index) => {
-    if(!((index+2) % 3))
+  ShouldCreateNewRow: (index, lead) => {
+    if(!((index + 1 + lead) % 3))
       return true;
     else
       return false;
   },
-  ShouldEndRow: (list, index) => {
-    i = index + 1;    
+  ShouldEndRow: (list, index, lead) => {
+    i = index + lead;    
     if(!(index % 3))
       return true;
     else if (list.length == i)

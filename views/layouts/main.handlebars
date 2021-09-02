@@ -8,49 +8,68 @@
 
   <!-- Compiled and minified materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
   <link rel="stylesheet" href="/stylesheets/style.css">
 
 </head>
+<header>
 
-<body>
-  <div class="wrapper">
+  <body>
+    <div class="wrapper">
     <header>
-
-      <nav class="nav-wrapper navbar-fixed">
+      <nav class="nav-wrapper">
         <a class="brand-logo" href="/">Game Watchers</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
         {{#if loggedIn}}
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul class="right hide-on-med-and-down">
           <li><a href="/Gamelist">Gamelist</a></li>
-          <li><button id="logout" class="btn-no-style">logout</button></li>
+          <li><a id="logout">logout</a></li>
+        </ul>
+
+        <ul class="sidenav" id="mobile-demo">
+          <li><a href="/Gamelist">Gamelist</a></li>
+          <li><a><button id="logout" class="btn-no-style">logout</button></a>></li>
         </ul>
         {{else}}
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul class="right hide-on-med-and-down">
           <li><a href="/login">login</a></li>
         </ul>
-        
+        <ul class="sidenav" id="mobile-demo">
+          <li><a href="/login">login</a></li>
+        </ul>
+
         {{/if}}
       </nav>
-
-
     </header>
+
     <main>
       {{{ body }}}
     </main>
     <footer class="page-footer">
       Have fun gaming!
     </footer>
-  </div>
-  
 
 
 
-  <!-- Compiled and minified materialize JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
-</body>
+
+    <!-- Compiled and minified materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+      });
+    </script>
+
+
+    </div>
+  </body>
 
 </html>

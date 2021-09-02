@@ -16,24 +16,23 @@
 <body>
   <div class="wrapper">
     <header>
-      <nav class="nav-wrapper">
+
+      <nav class="nav-wrapper navbar-fixed">
         <a class="brand-logo" href="/">Game Watchers</a>
         {{#if loggedIn}}
-        <ul class="right hide-on-med-and-down">
-          <li>
-            <a href="/Gamelist">Gamelist</a>
-          </li>
-          <li>
-            <button id="logout" class="btn-no-style">logout</button>
-          </li>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/Gamelist">Gamelist</a></li>
+          <li><button id="logout" class="btn-no-style">logout</button></li>
         </ul>
         {{else}}
-        <ul class="right hide-on-med-and-down">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/login">login</a></li>
         </ul>
         
         {{/if}}
       </nav>
+
+
     </header>
     <main>
       {{{ body }}}

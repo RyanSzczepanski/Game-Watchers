@@ -8,25 +8,26 @@
     <button class="" type="submit">Save Gamelist</button>
   </form>
 
-{{#each gamelists.games as |game|}}
-<form class="edit-gamelist-form">
+  {{#each gamelists.games as |game|}}
+  <form class="edit-game-form" id="{{game.id}}">
     <div>
-      <input name="game-title" type="text" value="{{game.game_title}}"/>
+      <input id="id_{{game.id}}" name="game-title" type="text" value="{{game.game_title}}" />
     </div>
     <button type="submit">Save</button>
   </form>
-{{/each}}
-<form class="add-game-form">
-  <div>
-    <input name="newgame-title" type="text" value="Game Title" />
-  </div>
-  <button type="submit">Add Game</button>
-</form>
-<br>
-<button type="button" class="delete-gamelist-btn">Delete list</button>
+  {{/each}}
+  <form class="add-game-form">
+    <div>
+      <input name="newgame-title" type="text" value="Game Title" />
+    </div>
+    <button type="submit">Add Game</button>
+  </form>
+  <br>
+  <button type="button" class="delete-gamelist-btn">Delete list</button>
 </article>
 
 
 <script src="/javascript/add-game.js"></script>
+<script src="/javascript/edit-game.js"></script>
 <script src="/javascript/edit-gamelist.js"></script>
 <script src="/javascript/delete-gamelist.js"></script>

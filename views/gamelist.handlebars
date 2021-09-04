@@ -2,6 +2,7 @@
 <h2>Your Gamelists</h2>
 {{/if}}
 
+{{!-- CASE: NO LISTS --}}
 {{#unless gamelists.length}}
 <div class="col s12 gamelist-card">
     <h2>Create New List</h2>
@@ -16,17 +17,15 @@
 {{/unless}}
 
 {{#each gamelists as |gamelist|}}
-
+{{!-- CASE: FIRST ITEM IN LIST --}}
 {{#unless @index}}
 <section class="row">  
-
-  <div class="col s6 gamelist-card">
-    {{> gamelist-info gamelist = gamelist}}
-    <a href="/gamelist/edit/{{gamelist.id}}" class="edit-link">Edit</a>
+  
+  <div class="col s6 gamelist-column">
+    {{> gamelist-info gamelist = gamelist canEdit = true}}
   </div>
 
-
-  <div class="col s6 gamelist-card">
+  <div class="col s6 gamelist-column">
     <h2>Create New List</h2>
     <form class="new-gamelist-form">
       <div>
@@ -38,17 +37,18 @@
   </div>
 </section>
 {{/unless}}
-
+{{!-- CASE: NOT THE FIRST ITEM --}}
 {{#if @index}}
-
+{{!-- CASE: START OF NEW ROW --}}
   {{#if (ShouldCreateNewRow @index 1)}}
-  <section class="row gamelist-row">
+  <section class="row">
   {{setVar "sn" (GetClassSectionNumb ../gamelists @index)}}
   {{/if}}
-    <div class="col {{../sn}} gamelist-card">
-      {{> gamelist-info gamelist = gamelist}}
-      <a href="/gamelist/edit/{{gamelist.id}}" class="edit-link">Edit</a>
+
+    <div class="col {{../sn}} gamelist-column">
+      {{> gamelist-info gamelist = gamelist canEdit = true}}
     </div>
+{{!-- CASE: END OF ROW --}}
   {{#if (ShouldEndRow ../gamelists @index 1)}}
   </section>
   {{/if}}

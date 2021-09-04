@@ -6,15 +6,18 @@
 
 * {
   box-sizing: border-box;
-}
+} 
 
 body {
   background-color: #252525;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-h2 {
+/* h2 {
   font-size: xx-large;
-}
+} */
 
 body, html {
   height: 100%;
@@ -33,10 +36,6 @@ a {
 
 a:hover {
   color: var(--secondary);
-}
-
-a.button{
-  height: 100%;
 }
 
 button {
@@ -96,14 +95,22 @@ form label {
   padding: 0 25px;
 }
 
-.gamelist-row {
-  height:220px;
-
+.gamelist-column {
+  /* background-color: rgba(0, 0, 0, 0.137); */
 }
 
 .gamelist-card {
-  height:220px;
   background-color: #00000025;
+}
+
+.gamelist-card-image{
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.gamelist-card-title{
+  margin-top: -30px;
 }
 
 header h1 {
@@ -111,7 +118,7 @@ header h1 {
 }
 
 main {
-  flex: 1;
+  flex: 1 0 auto;
   padding: 2% 4%;
 }
 
@@ -184,24 +191,19 @@ main {
   opacity: .6;
 }
 
-.new-gamelist-form input {
+form input, form div input {
   width: 300px;
   color: var(--white);
 }
 
-.edit-gamelist-form input {
-  width: 300px;
-  color: var(--white);
+.s4, .s6, .s8, .s12, .col, .row{
+  margin: 0;
 }
 
-.edit-post-form {
-  margin-bottom: 5%;
+.card-content {
+  background-color: var(--white);
 }
 
-footer {
-  border-top: 1px solid var(--white);
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
+.card-content span {
+  color: rgb(14, 14, 14)
 }

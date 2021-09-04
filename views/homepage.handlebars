@@ -1,7 +1,30 @@
-<ol class="post-list">
-  {{#each gamelists as |gamelist|}}
-  <li>
-    {{> gamelist-info gamelist = gamelist }}
-  </li>
-  {{/each}}
-</ol>
+{{#each gamelists as |gamelist|}}
+
+{{!-- CASE: FIRST ITEM IN LIST --}}
+{{#unless @index}}
+<section class="row">  
+  <div class="col s12 gamelist-column">
+    {{> gamelist-info gamelist = gamelist canEdit = false}}
+  </div>
+</section>
+{{/unless}}
+
+{{!-- CASE: NOT THE FIRST ITEM --}}
+{{#if @index}}
+
+{{!-- CASE: START OF NEW ROW --}}
+  {{#if (ShouldCreateNewRow @index 1)}}
+  <section class="row">
+  {{setVar "sn" (GetClassSectionNumb ../gamelists @index)}}
+  {{/if}}
+
+    <div class="col {{../sn}} gamelist-column">
+      {{> gamelist-info gamelist = gamelist canEdit = false}}
+    </div>
+
+{{!-- CASE: END OF ROW --}}
+  {{#if (ShouldEndRow ../gamelists @index 1)}}
+  </section>
+  {{/if}}
+{{/if}}
+{{/each}}

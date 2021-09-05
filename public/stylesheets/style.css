@@ -1,5 +1,5 @@
 :root {
-  --white: #ccc;
+  --offWhite: #ccc;
   --primary: #225ca3;
   --secondary: #3486eb;
 }
@@ -20,7 +20,7 @@ body, html {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: var(--white);
+  color: var(--offWhite);
 }
 
 .nav-a {
@@ -32,50 +32,6 @@ body, html {
 
 .nav-a:hover {
   color: var(--secondary);
-}
-
-/* button {
-  background-color: var(--primary);
-  border: 0;
-  padding: 1%;
-  color: var(--white);
-  font-weight: bold;
-  transition: background-color .1s;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: var(--secondary);
-} */
-
-.post-list {
-  margin: 0;
-  padding: 0;
-}
-
-textarea, input {
-  padding: .5%;
-  border-radius: 5px;
-  border: 1px solid var(--white);
-}
-
-textarea:focus, input:focus {
-  outline: none;
-  border: 1px solid #3486eb;
-}
-
-textarea {
-  min-width: 40%;
-  min-height: 100px;
-}
-
-form > div {
-  margin-bottom: 2%;
-}
-
-form label {
-  display: block;
 }
 
 .wrapper {
@@ -106,7 +62,7 @@ main {
 
 form input {
   width: 300px;
-  color: var(--white);
+  color: var(--offWhite);
 }
 
 .col, .row{
@@ -115,6 +71,10 @@ form input {
 
 .card {
   border-radius: 10px;
+}
+
+.card .card-content {
+  padding: 12px;
 }
 
 .card-content span {
@@ -151,12 +111,12 @@ form input {
 /* Medium and up */
 @media (min-width:600px) {
   /* Seems very inefficient but it works sooo..... */
-  .m12 > div > div > .card > .card-image > a > .gamelist-card-image, .m12 > div > div > a > .card > .card-image > .gamelist-card-image {
+  .m12 > div > div > .card > .card-image > a > .gamelist-card-image {
     height: 300px;
   }
 
   /* Seems very inefficient but it works sooo..... */
-  .m6 > div > div > .card > .card-image > a > .gamelist-card-image, .m6 > div > div > a > .card > .card-image > .gamelist-card-image {
+  .m6 > div > div > .card > .card-image > a > .gamelist-card-image {
     height: 200px;
   }
 }

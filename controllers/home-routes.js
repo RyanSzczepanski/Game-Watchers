@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Game,
-        attributes: ['id', 'game_title', 'created_at'],
+        attributes: ['id', 'game_title', 'game_image_url', 'created_at'],
       },
       {
         model: User,

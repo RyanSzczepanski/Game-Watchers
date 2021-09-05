@@ -15,6 +15,10 @@ Game.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    game_image_url: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     list_id: {
       type: DataTypes.INTEGER,
       references: {

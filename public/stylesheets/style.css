@@ -108,6 +108,7 @@ form input {
     font-size: x-large;
   }
 }
+
 /* Medium and up */
 @media (min-width:600px) {
   /* Seems very inefficient but it works sooo..... */

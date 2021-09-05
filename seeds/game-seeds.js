@@ -93,6 +93,6 @@ const gamedata = [
   },
 ];
 
-const seedGames = () => Game.bulkCreate(gamedata, {individualHooks: true});
+const seedGames = () => Game.bulkCreate(gamedata);
 
 module.exports = seedGames;

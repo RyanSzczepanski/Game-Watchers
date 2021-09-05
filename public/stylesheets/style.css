@@ -15,10 +15,6 @@ body {
   flex-direction: column;
 }
 
-/* h2 {
-  font-size: xx-large;
-} */
-
 body, html {
   height: 100%;
   padding: 0;
@@ -206,4 +202,23 @@ form input, form div input {
 
 .card-content span {
   color: rgb(14, 14, 14)
+}
+
+/* Small */
+@media (max-width:600px) {
+  h2 {
+    font-size: x-large;
+  }
+}
+/* Medium and up */
+@media (min-width:600px) {
+  /* Seems very inefficient but it works sooo..... */
+  .m12 > div > div > .card > .card-image > a > .gamelist-card-image {
+    height: 300px;
+  }
+
+  /* Seems very inefficient but it works sooo..... */
+  .m6 > div > div > .card > .card-image > a > .gamelist-card-image {
+    height: 200px;
+  }
 }

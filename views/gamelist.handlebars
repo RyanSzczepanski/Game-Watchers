@@ -22,12 +22,7 @@
 {{!-- CASE: FIRST ITEM IN LIST --}}
 {{#unless @index}}
 <section class="row">  
-  
-  <div class="col s6 gamelist-column">
-    {{> gamelist-info gamelist = gamelist canEdit = true}}
-  </div>
-
-  <div class="col s6 gamelist-column">
+  <div class="col s12 m6 push-m6 gamelist-column">
     <h2>Create New List</h2>
     <form class="new-gamelist-form">
       <div>
@@ -36,6 +31,9 @@
       </div>
       <button type="submit" class="btn">Create</button>
     </form>
+  </div>
+  <div class="col s12 m6 pull-m6 gamelist-column">
+    {{> gamelist-info gamelist = gamelist canEdit = true}}
   </div>
 </section>
 {{/unless}}
@@ -49,7 +47,7 @@
   {{setVar "sn" (GetClassSectionNumb ../gamelists @index)}}
   {{/if}}
 
-    <div class="col {{../sn}} gamelist-column">
+    <div class="col s12 {{../sn}} gamelist-column">
       {{> gamelist-info gamelist = gamelist canEdit = true}}
     </div>
     

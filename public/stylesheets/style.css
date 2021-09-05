@@ -23,18 +23,18 @@ body, html {
   color: var(--white);
 }
 
-a {
+.nav-a {
   text-decoration: none;
-  color: var(--primary);
+  color: white;
   font-weight: bold;
   transition: color .1s;
 }
 
-a:hover {
+.nav-a:hover {
   color: var(--secondary);
 }
 
-button {
+/* button {
   background-color: var(--primary);
   border: 0;
   padding: 1%;
@@ -47,7 +47,7 @@ button {
 
 button:hover {
   background-color: var(--secondary);
-}
+} */
 
 .post-list {
   margin: 0;
@@ -91,8 +91,34 @@ form label {
   padding: 0 25px;
 }
 
-.gamelist-column {
-  /* background-color: rgba(0, 0, 0, 0.137); */
+main {
+  flex: 1 0 auto;
+  padding: 2% 4%;
+}
+
+.delete-btn {
+  background-color: #d41414;
+}
+
+.delete-btn:hover {
+  background-color: #ff643d;
+}
+
+form input {
+  width: 300px;
+  color: var(--white);
+}
+
+.col, .row{
+  margin: 0;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card-content span {
+  color: rgb(14, 14, 14)
 }
 
 .gamelist-card {
@@ -109,99 +135,11 @@ form label {
   margin-top: -30px;
 }
 
-header h1 {
-  font-size: 1em;
-}
-
-main {
-  flex: 1 0 auto;
-  padding: 2% 4%;
-}
-
-.btn-no-style {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  color: white;
-  font-size: 100%;
-  font-weight: bold;
-  transition: color .1s;
-}
-
-.btn-no-style:hover {
-  background: none;
-  color: var(--secondary);
-}
-
-.delete-post-btn {
-  background-color: #d41414;
-}
-
-.delete-post-btn:hover {
-  background-color: #ff643d;
-}
-
-.post {
-  margin-bottom: 2%;
-  line-height: 150%;
-}
-
-.post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
-}
-
-.edit-link {
-  display: block;
-  margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
-}
-
-.comment-form {
-  margin-bottom: 5%;
-}
-
-.comment {
-  padding: 1%;
-  margin-bottom: 1%;
-}
-
-.comment:nth-child(odd) {
-  background-color: #fff5eb;
-}
-
-.comment .meta {
-  font-size: 90%;
-  margin-bottom: .5%;
-  opacity: .6;
-}
-
-form input, form div input {
-  width: 300px;
-  color: var(--white);
-}
-
-.s4, .s6, .s8, .s12, .col, .row{
-  margin: 0;
-}
-
-.card-content {
-  background-color: var(--white);
-}
-
-.card-content span {
-  color: rgb(14, 14, 14)
+/* Extra Small */
+@media (max-width:440px) {
+  nav .brand-logo {
+    font-size: 1.25rem;
+  }
 }
 
 /* Small */
@@ -213,12 +151,12 @@ form input, form div input {
 /* Medium and up */
 @media (min-width:600px) {
   /* Seems very inefficient but it works sooo..... */
-  .m12 > div > div > .card > .card-image > a > .gamelist-card-image {
+  .m12 > div > div > .card > .card-image > a > .gamelist-card-image, .m12 > div > div > a > .card > .card-image > .gamelist-card-image {
     height: 300px;
   }
 
   /* Seems very inefficient but it works sooo..... */
-  .m6 > div > div > .card > .card-image > a > .gamelist-card-image {
+  .m6 > div > div > .card > .card-image > a > .gamelist-card-image, .m6 > div > div > a > .card > .card-image > .gamelist-card-image {
     height: 200px;
   }
 }

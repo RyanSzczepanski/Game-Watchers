@@ -3,7 +3,7 @@
 {{!-- CASE: FIRST ITEM IN LIST --}}
 {{#unless @index}}
 <section class="row">  
-  <div class="col s12 gamelist-column">
+  <div class="col s12 m12 gamelist-column">
     {{> gamelist-info gamelist = gamelist canEdit = false}}
   </div>
 </section>
@@ -18,7 +18,7 @@
   {{setVar "sn" (GetClassSectionNumb ../gamelists @index)}}
   {{/if}}
 
-    <div class="col {{../sn}} gamelist-column">
+    <div class="col s12 {{../sn}} gamelist-column">
       {{> gamelist-info gamelist = gamelist canEdit = false}}
     </div>
 

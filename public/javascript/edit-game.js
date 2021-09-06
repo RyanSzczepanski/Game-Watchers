@@ -4,7 +4,7 @@ async function editFormHandler(event) {
     const id = event.target.id.split('_')[0];
     const game_title = document.querySelector(`#id_${id}`).value;
 
-    const response = await fetch(`/api/game/title/${id}`, {
+    const response = await fetch(`/api/game/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
         game_title

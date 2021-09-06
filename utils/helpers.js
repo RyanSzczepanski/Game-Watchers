@@ -26,24 +26,24 @@ module.exports = {
     numleft = list.length-index;
     var ret;
     if (numleft >= 3){
-      ret = "m4"
+      ret = "s4"
     }
     else if (numleft == 2){
-      ret = "m6";
+      ret = "s6";
     }
     else if (numleft <= 1){
-      ret = "m12";
+      ret = "s12";
     }
     return ret;
   },
-  ShouldCreateNewRow: (index, lead) => {
-    if(!((index + 1 + lead) % 3))
+  ShouldCreateNewRow: (index) => {
+    if(!((index+2) % 3))
       return true;
     else
       return false;
   },
-  ShouldEndRow: (list, index, lead) => {
-    i = index + lead;    
+  ShouldEndRow: (list, index) => {
+    i = index + 1;    
     if(!(index % 3))
       return true;
     else if (list.length == i)

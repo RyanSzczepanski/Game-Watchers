@@ -6,13 +6,14 @@
 
 * {
   box-sizing: border-box;
-} 
+}
 
 body {
   background-color: #252525;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+}
+
+h2 {
+  font-size: xx-large;
 }
 
 body, html {
@@ -91,30 +92,30 @@ form label {
   padding: 0 25px;
 }
 
-.gamelist-column {
-  /* background-color: rgba(0, 0, 0, 0.137); */
+.gamelist-row {
+  height:220px;
+
 }
 
 .gamelist-card {
+  height:220px;
   background-color: #00000025;
 }
 
-.gamelist-card-image{
-  height: 150px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.gamelist-card-title{
-  margin-top: -30px;
-}
+/* header {
+  border-bottom: 1px solid var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+} */
 
 header h1 {
   font-size: 1em;
 }
 
 main {
-  flex: 1 0 auto;
+  flex: 1;
   padding: 2% 4%;
 }
 
@@ -124,10 +125,11 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: white;
+  color: var(--primary);
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
+  margin-left: 16px;
 }
 
 .btn-no-style:hover {
@@ -187,38 +189,24 @@ main {
   opacity: .6;
 }
 
-form input, form div input {
+.new-gamelist-form input {
   width: 300px;
   color: var(--white);
 }
 
-.s4, .s6, .s8, .s12, .col, .row{
-  margin: 0;
+.edit-gamelist-form input {
+  width: 300px;
+  color: var(--white);
 }
 
-.card-content {
-  background-color: var(--white);
+.edit-post-form {
+  margin-bottom: 5%;
 }
 
-.card-content span {
-  color: rgb(14, 14, 14)
-}
-
-/* Small */
-@media (max-width:600px) {
-  h2 {
-    font-size: x-large;
-  }
-}
-/* Medium and up */
-@media (min-width:600px) {
-  /* Seems very inefficient but it works sooo..... */
-  .m12 > div > div > .card > .card-image > a > .gamelist-card-image {
-    height: 300px;
-  }
-
-  /* Seems very inefficient but it works sooo..... */
-  .m6 > div > div > .card > .card-image > a > .gamelist-card-image {
-    height: 200px;
-  }
+footer {
+  border-top: 1px solid var(--white);
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  font-size: 110%;
 }

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { User, GameList, Game } = require('../../models');
+const { Post, User, Comment, Vote, GameList, Game } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
@@ -43,8 +43,7 @@ router.get('/:id', withAuth,(req, res) => {
 router.post('/:list_id', withAuth,(req, res) => {
   Game.create({
     game_title: req.body.game_title,
-    list_id: req.params.list_id,
-    game_image_url: req.body.game_image_url,
+    list_id: req.params.list_id
   })
     .then(dbGameData => res.json(dbGameData))
     .catch(err => {
@@ -53,31 +52,9 @@ router.post('/:list_id', withAuth,(req, res) => {
     });
 });
 
-router.put('title/:id', withAuth, (req, res) => {
+router.put('/:id', withAuth,(req, res) => {
   Game.update({
     game_title: req.body.game_title
-  },
-    {
-      where: {
-        id: req.params.id
-      }
-    })
-    .then(dbGameData => {
-      if (!dbGameData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
-      res.json(dbGameData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-router.put('image/:id', /*withAuth,*/ (req, res) => {
-  Game.update({
-    game_image_url: req.body.game_image_url
   },
     {
       where: {

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Vote, GameList, Game } = require('../models');
+const { User, GameList, Game } = require('../models');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
   })
     .then(dbGamelistData => {
       const gamelists = dbGamelistData.map(gamelist => gamelist.get({ plain: true }));
+      console.log(req.session.loggedIn)
       res.render('homepage',{
         gamelists,
         loggedIn: req.session.loggedIn

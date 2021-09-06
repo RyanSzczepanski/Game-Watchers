@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card hoverable">
   <div class="card-image">
     <a href="/gamelist/view/{{gamelist.id}}">
       {{log gamelist}}
@@ -13,7 +13,9 @@
     <span>
       {{title}}
       <br>
+      {{#unless canEdit}}
       Created by <a href="#">{{gamelist.user.username}}</a>
+      {{/unless}}
     </span>
   </div>
 </div>

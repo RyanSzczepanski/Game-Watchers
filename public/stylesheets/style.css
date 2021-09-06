@@ -95,6 +95,10 @@ form input {
   margin-top: -30px;
 }
 
+.page-footer {
+  padding: 0;
+}
+
 /* Extra Small */
 @media (max-width:440px) {
   nav .brand-logo {

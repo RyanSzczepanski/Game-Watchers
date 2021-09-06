@@ -112,12 +112,12 @@ form input {
 /* Medium and up */
 @media (min-width:600px) {
   /* Seems very inefficient but it works sooo..... */
-  .m12 > div > div > .card > .card-image > a > .gamelist-card-image {
+  .m12 > .card > .card-image > a > .gamelist-card-image, .m12 > .card > .card-image > .gamelist-card-image {
     height: 300px;
   }
 
   /* Seems very inefficient but it works sooo..... */
-  .m6 > div > div > .card > .card-image > a > .gamelist-card-image {
+  .m6 > .card > .card-image > a > .gamelist-card-image, .m6 > .card > .card-image > .gamelist-card-image {
     height: 200px;
   }
 }

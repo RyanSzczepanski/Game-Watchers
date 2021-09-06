@@ -6,16 +6,18 @@ async function loginFormHandler(event) {
 
   if (email && password) {
     const response = await fetch('/api/users/login', {
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify({
         email,
         password
       }),
       headers: { 'Content-Type': 'application/json' }
-    });
+    })
+    console.log(response)
     if (response.ok) {
-      document.location.replace('/gamelist/');
+      document.location.replace('/');
     } else {
+      
       alert(response.statusText);
     }
   }

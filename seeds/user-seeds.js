@@ -1,11 +1,11 @@
 const { User, GameList } = require('../models');
 
-// const myuser = 
-//   {
-//     username: 'Ryan',
-//     email: 'user@email.com',
-//     password: 'password'
-//   }
+const myuser = 
+  {
+    username: 'Ryan',
+    email: 'user@email.com',
+    password: 'password'
+  }
 
 const userdata = [
   {
@@ -62,7 +62,7 @@ const userdata = [
 
 const seedUsers = () => {
   User.bulkCreate(userdata);
-  // User.create(myuser);
+  User.create(myuser);
 }
 
 module.exports = seedUsers;

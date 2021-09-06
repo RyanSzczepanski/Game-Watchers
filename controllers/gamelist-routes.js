@@ -6,11 +6,7 @@ const withAuth = require('../utils/auth');
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
   console.log('======================');
-  console.log(req.session.user_id);
   GameList.findAll({
-    where: {
-      user_id: req.session.user_id
-    },
     attributes: [
       'id',
       'title',

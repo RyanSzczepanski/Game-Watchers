@@ -26,13 +26,13 @@ module.exports = {
     numleft = list.length-index;
     var ret;
     if (numleft >= 3){
-      ret = "s4"
+      ret = "m4"
     }
     else if (numleft == 2){
-      ret = "s6";
+      ret = "m6";
     }
     else if (numleft <= 1){
-      ret = "s12";
+      ret = "m12";
     }
     return ret;
   },

@@ -1,19 +1,18 @@
 :root {
-  --white: #ccc;
+  --offWhite: #ccc;
   --primary: #225ca3;
   --secondary: #3486eb;
 }
 
 * {
   box-sizing: border-box;
-}
+} 
 
 body {
   background-color: #252525;
-}
-
-h2 {
-  font-size: xx-large;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 body, html {
@@ -21,62 +20,18 @@ body, html {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: var(--white);
+  color: var(--offWhite);
 }
 
-a {
+.nav-a {
   text-decoration: none;
-  color: var(--primary);
+  color: white;
   font-weight: bold;
   transition: color .1s;
 }
 
-a:hover {
+.nav-a:hover {
   color: var(--secondary);
-}
-
-button {
-  background-color: var(--primary);
-  border: 0;
-  padding: 1%;
-  color: var(--white);
-  font-weight: bold;
-  transition: background-color .1s;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: var(--secondary);
-}
-
-.post-list {
-  margin: 0;
-  padding: 0;
-}
-
-textarea, input {
-  padding: .5%;
-  border-radius: 5px;
-  border: 1px solid var(--white);
-}
-
-textarea:focus, input:focus {
-  outline: none;
-  border: 1px solid #3486eb;
-}
-
-textarea {
-  min-width: 40%;
-  min-height: 100px;
-}
-
-form > div {
-  margin-bottom: 2%;
-}
-
-form label {
-  display: block;
 }
 
 .wrapper {
@@ -92,121 +47,81 @@ form label {
   padding: 0 25px;
 }
 
-.gamelist-row {
-  height:220px;
-
-}
-
-.gamelist-card {
-  height:220px;
-  background-color: #00000025;
-}
-
-/* header {
-  border-bottom: 1px solid var(--white);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1%;
-} */
-
-header h1 {
-  font-size: 1em;
-}
-
 main {
-  flex: 1;
+  flex: 1 0 auto;
   padding: 2% 4%;
 }
 
-.btn-no-style {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--primary);
-  font-size: 100%;
-  font-weight: bold;
-  transition: color .1s;
-  margin-left: 16px;
-}
-
-.btn-no-style:hover {
-  background: none;
-  color: var(--secondary);
-}
-
-.delete-post-btn {
+.delete-btn {
   background-color: #d41414;
 }
 
-.delete-post-btn:hover {
+.delete-btn:hover {
   background-color: #ff643d;
 }
 
-.post {
-  margin-bottom: 2%;
-  line-height: 150%;
-}
-
-.post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
-}
-
-.edit-link {
-  display: block;
-  margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
-}
-
-.comment-form {
-  margin-bottom: 5%;
-}
-
-.comment {
-  padding: 1%;
-  margin-bottom: 1%;
-}
-
-.comment:nth-child(odd) {
-  background-color: #fff5eb;
-}
-
-.comment .meta {
-  font-size: 90%;
-  margin-bottom: .5%;
-  opacity: .6;
-}
-
-.new-gamelist-form input {
+form input {
   width: 300px;
-  color: var(--white);
+  color: var(--offWhite);
 }
 
-.edit-gamelist-form input {
-  width: 300px;
-  color: var(--white);
+.col, .row{
+  margin: 0;
 }
 
-.edit-post-form {
-  margin-bottom: 5%;
+.card {
+  border-radius: 10px;
 }
 
-footer {
-  border-top: 1px solid var(--white);
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
+.card .card-content {
+  padding: 12px;
+}
+
+.card-content span {
+  color: rgb(14, 14, 14)
+}
+
+.gamelist-card {
+  background-color: #00000025;
+}
+
+.gamelist-card-image{
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.gamelist-card-title{
+  margin-top: -30px;
+}
+
+.page-footer {
+  padding: 0;
+}
+
+/* Extra Small */
+@media (max-width:440px) {
+  nav .brand-logo {
+    font-size: 1.25rem;
+  }
+}
+
+/* Small */
+@media (max-width:600px) {
+  h2 {
+    font-size: x-large;
+  }
+}
+
+/* Medium and up */
+@media (min-width:600px) {
+  /* Seems very inefficient but it works sooo..... */
+  .m12 > .card > .card-image > a > .gamelist-card-image, .m12 > .card > .card-image > .gamelist-card-image {
+    height: 300px;
+  }
+
+  /* Seems very inefficient but it works sooo..... */
+  .m6 > .card > .card-image > a > .gamelist-card-image, .m6 > .card > .card-image > .gamelist-card-image {
+    height: 200px;
+  }
 }

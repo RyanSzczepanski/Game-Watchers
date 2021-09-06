@@ -6,7 +6,11 @@ const withAuth = require('../utils/auth');
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
   console.log('======================');
+  console.log(req.session.user_id);
   GameList.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
     attributes: [
       'id',
       'title',
@@ -16,7 +20,7 @@ router.get('/', withAuth, (req, res) => {
     include: [
       {
         model: Game,
-        attributes: ['id', 'game_title', 'created_at'],
+        attributes: ['id', 'game_title', 'game_image_url', 'created_at'],
       },
       {
         model: User,
@@ -83,7 +87,7 @@ router.get('/edit/:list_id', withAuth, (req, res) => {
       include: [
         {
           model: Game,
-          attributes: ['id', 'game_title', 'created_at'],
+          attributes: ['id', 'game_title', 'game_image_url', 'created_at'],
         },
         {
           model: User,
@@ -93,9 +97,9 @@ router.get('/edit/:list_id', withAuth, (req, res) => {
     })
       .then(dbGamesListData => {
         if (dbGamesListData) {
-          const gamelists = dbGamesListData.get({ plain: true });
+          const gamelist = dbGamesListData.get({ plain: true });
           res.render('view-gamelist', {
-            gamelists,
+            gamelist,
             loggedIn: true
           });
         } else {

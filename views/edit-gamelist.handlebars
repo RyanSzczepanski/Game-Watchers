@@ -5,28 +5,37 @@
   </h2>
   <form class="edit-gamelist-form">
     <input class="" name="gamelist-title" type="text" value="{{gamelists.title}}" />
-    <button class="" type="submit">Save Gamelist</button>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Save Title</button>
   </form>
 
-{{#each gamelists.games as |game|}}
-<form class="edit-gamelist-form">
-    <div>
-      <input name="game-title" type="text" value="{{game.game_title}}"/>
+  {{#each gamelists.games as |game|}}
+  <form class="edit-game-form" id="{{game.id}}">
+    <div class="row">
+      <input class="col s8 m9 l5" id="id_{{game.id}}" name="game-title" type="text" value="{{game.game_title}}" />
+      <button class="btn waves-effect waves-light" type="submit" name="action">
+        <i class="material-icons">save</i>
+      </button>
+      <a class="waves-effect waves-light btn delete-btn" id="id_{{game.id}}">
+        <i class="material-icons">delete</i>
+      </a>
     </div>
-    <button type="submit">Save</button>
   </form>
-{{/each}}
-<form class="add-game-form">
-  <div>
-    <input name="newgame-title" type="text" value="Game Title" />
-  </div>
-  <button type="submit">Add Game</button>
-</form>
-<br>
-<button type="button" class="delete-gamelist-btn">Delete list</button>
+  {{/each}}
+  <form class="add-game-form">
+    <div class="row">
+      <input class="col s8 m9 l5" name="newgame-title" type="text" value="Game Title" />
+      <button class="btn waves-effect waves-light" type="submit" name="action">
+        <i class="material-icons">add</i>
+      </button>
+    </div>
+  </form>
+  <br>
+  <a type="button" class="waves-effect waves-light btn delete-gamelist-btn delete-btn">Delete list</a>
 </article>
 
 
 <script src="/javascript/add-game.js"></script>
+<script src="/javascript/edit-game.js"></script>
+<script src="/javascript/delete-game.js"></script>
 <script src="/javascript/edit-gamelist.js"></script>
 <script src="/javascript/delete-gamelist.js"></script>

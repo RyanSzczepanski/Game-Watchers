@@ -3,6 +3,7 @@
     <div class="card">
       <div class="card-image">
         <a href="/gamelist/view/{{gamelist.id}}">
+        {{log gamelist}}
           <img class="gamelist-card-image" src="{{gamelist.games.0.game_image_url}}">
         </a>
         {{#if canEdit}}

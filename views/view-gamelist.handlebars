@@ -1,9 +1,32 @@
 <a href="/"> &larr; Go Back</a>
-<h2>{{gamelists.title}}</h2>
-<ol>
-{{#each gamelists.games as |game|}}
- <li>
+<h2>{{gamelist.title}}</h2>
+
+{{#each gamelist.games as |game|}}
+
+{{!-- CASE: FIRST ITEM IN LIST --}}
+{{#unless @index}}
+<section class="row">  
+  <div class="col s12 m12 gamelist-column">
     {{> game-info game=game}}
- </li>
+  </div>
+</section>
+{{/unless}}
+
+{{!-- CASE: NOT THE FIRST ITEM --}}
+{{#if @index}}
+
+{{!-- CASE: START OF NEW ROW --}}
+  {{#if (ShouldCreateNewRow @index 1)}}
+  <section class="row">
+  {{setVar "sn" (GetClassSectionNumb ../gamelist.games @index)}}
+  {{/if}}
+    <div class="col s12 {{../sn}} gamelist-column">
+      {{> game-info game=game}}
+    </div>
+
+{{!-- CASE: END OF ROW --}}
+  {{#if (ShouldEndRow ../gamelist.games @index 1)}}
+  </section>
+  {{/if}}
+{{/if}}
 {{/each}}
-</ol>

@@ -54,7 +54,6 @@ router.post('/:list_id', withAuth,(req, res) => {
 });
 
 router.put('/title/:id', withAuth, (req, res) => {
-  console.log(req.params.id)
   Game.update({
     game_title: req.body.game_title
   },

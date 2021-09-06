@@ -3,7 +3,6 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, Vote, GameList, Game } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all gamelists
 router.get('/', (req, res) => {
   console.log('======================');
   GameList.findAll({
@@ -31,8 +30,6 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-//TODO: REST OF THIS SCRIPT
 
 router.get('/:id', (req, res) => {
   Post.findOne({
@@ -117,12 +114,12 @@ router.delete('/:id', withAuth, (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbGamelistData => {
+      if (!dbGamelistData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbGamelistData);
     })
     .catch(err => {
       console.log(err);

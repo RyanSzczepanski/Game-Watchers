@@ -1,3 +1,4 @@
+{{!-- CASE: GAMELIST WITH ITEMS --}}
 {{#if gamelists.length}}
 <h2>Your Gamelists</h2>
 {{/if}}
@@ -17,6 +18,7 @@
 {{/unless}}
 
 {{#each gamelists as |gamelist|}}
+
 {{!-- CASE: FIRST ITEM IN LIST --}}
 {{#unless @index}}
 <section class="row">  
@@ -37,8 +39,10 @@
   </div>
 </section>
 {{/unless}}
+
 {{!-- CASE: NOT THE FIRST ITEM --}}
 {{#if @index}}
+
 {{!-- CASE: START OF NEW ROW --}}
   {{#if (ShouldCreateNewRow @index 1)}}
   <section class="row">
@@ -48,6 +52,7 @@
     <div class="col {{../sn}} gamelist-column">
       {{> gamelist-info gamelist = gamelist canEdit = true}}
     </div>
+    
 {{!-- CASE: END OF ROW --}}
   {{#if (ShouldEndRow ../gamelists @index 1)}}
   </section>

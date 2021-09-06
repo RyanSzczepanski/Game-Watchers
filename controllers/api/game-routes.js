@@ -53,7 +53,7 @@ router.post('/:list_id', withAuth,(req, res) => {
     });
 });
 
-router.put('title/:id', withAuth, (req, res) => {
+router.put('/title/:id', withAuth, (req, res) => {
   Game.update({
     game_title: req.body.game_title
   },

@@ -3,14 +3,14 @@ var id
 document.querySelector('.add-game-form').addEventListener('submit', editFormHandler);
 
 async function editFormHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-    const instance = M.Modal.getInstance(document.querySelector("#add-game-modal"));
-    //
-    instance.open();
+  id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+  const instance = M.Modal.getInstance(document.querySelector("#add-game-modal"));
+  
+  instance.open();
 }
 
 
@@ -30,7 +30,7 @@ async function create(){
           game_title
         })
       }
-
+      console.log(window.location.reload())
     const response = await fetch(`/api/game/${id}`, {
         method: 'POST',
         body,

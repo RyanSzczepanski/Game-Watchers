@@ -34,6 +34,27 @@
 </article>
 
 
+{{!-- MODAL --}}
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Enter URL to Update Image or Leave Empty</h4>
+    <input name="image_url" type="text" value=""/>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var options = {
+      onCloseEnd: save
+    }
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, options);
+  });
+</script>
+
 <script src="/javascript/add-game.js"></script>
 <script src="/javascript/edit-game.js"></script>
 <script src="/javascript/delete-game.js"></script>

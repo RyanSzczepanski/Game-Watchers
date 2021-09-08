@@ -1,23 +1,22 @@
 var id;
 
+document.querySelectorAll(`.edit-game-form`).forEach(game_form => {
+  game_form.addEventListener('submit', editFormHandler)
+})
+
 function editFormHandler(event) {
   event.preventDefault();
 
-  const instance = M.Modal.getInstance(document.querySelector("#modal1"));
+  const instance = M.Modal.getInstance(document.querySelector("#edit-game-modal"));
   id = event.target.id.split('_')[0];
 
   instance.open()
 }
 
 
-document.querySelectorAll(`.edit-game-form`).forEach(game_form => {
-  game_form.addEventListener('submit', editFormHandler)
-})
-
-
 //SAVE THE GAME INFO
 async function save() {
-  const game_image_url = document.querySelector('input[name="image_url"]').value.trim()
+  const game_image_url = document.querySelector('input[name="edit_image_url"]').value.trim()
   const game_title = document.querySelector(`#id_${id}`).value;
 
   if(game_image_url != ""){
@@ -42,7 +41,7 @@ async function save() {
   });
 
   if (response.ok) {
-    document.location.replace(window.location.toString());
+    document.location.reload();
   } else {
     alert(response.statusText);
   }

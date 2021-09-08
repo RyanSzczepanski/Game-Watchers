@@ -16,7 +16,7 @@ async function editFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/Gamelist/');
+    document.location.reload();
   } else {
     alert(response.statusText);
   }

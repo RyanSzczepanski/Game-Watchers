@@ -25,7 +25,6 @@ router.get('/', (req, res) => {
   })
     .then(dbGamelistData => {
       const gamelists = dbGamelistData.map(gamelist => gamelist.get({ plain: true }));
-      console.log(req.session.loggedIn)
       res.render('homepage',{
         gamelists,
         loggedIn: req.session.loggedIn

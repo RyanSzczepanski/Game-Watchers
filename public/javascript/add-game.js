@@ -30,7 +30,6 @@ async function create(){
           game_title
         })
       }
-      console.log(window.location.reload())
     const response = await fetch(`/api/game/${id}`, {
         method: 'POST',
         body,

@@ -75,7 +75,7 @@ router.get('/edit/:list_id', withAuth, (req, res) => {
     });
   })
 
-  router.get('/view/:list_id', withAuth, (req, res) => {
+  router.get('/view/:list_id', (req, res) => {
     GameList.findByPk(req.params.list_id ,{
       attributes: [
         'id',
